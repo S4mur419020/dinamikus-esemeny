@@ -39,6 +39,11 @@ public class Dinamikus_esemenyek extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Dinamikus események");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         btnGeneral.setText("Generál");
         btnGeneral.addActionListener(new java.awt.event.ActionListener() {
@@ -148,6 +153,20 @@ public class Dinamikus_esemenyek extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(rootPane, evt.getActionCommand());
     }//GEN-LAST:event_kozozskattintas_esemeny
 
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        JOptionPane.showMessageDialog(rootPane, "Biztosan kilépsz?");
+        String uzenet="Biztosan?";
+        String cim="Kilépsz?";
+        int gombok = JOptionPane.YES_NO_OPTION;
+        int tipus = JOptionPane.QUESTION_MESSAGE;
+        int valasz = JOptionPane.showConfirmDialog(rootPane, uzenet, cim,gombok, tipus);
+        if (valasz ==JOptionPane.YES_OPTION) {
+            final int HIBA_KOD = 0;     
+           System.exit(HIBA_KOD);
+    }
+    }//GEN-LAST:event_formWindowClosing
+
+    
     /**
      * @param args the command line arguments
      */
@@ -181,6 +200,7 @@ public class Dinamikus_esemenyek extends javax.swing.JFrame {
                 new Dinamikus_esemenyek().setVisible(true);
             }
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
