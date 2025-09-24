@@ -4,6 +4,7 @@
  */
 package main;
 
+import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -36,6 +37,9 @@ public class Dinamikus_esemenyek extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Dinamikus események");
@@ -86,6 +90,20 @@ public class Dinamikus_esemenyek extends javax.swing.JFrame {
             }
         });
 
+        jMenu1.setText("File");
+
+        jMenuItem1.setText("Kilépés");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        jMenuBar1.add(jMenu1);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -119,7 +137,7 @@ public class Dinamikus_esemenyek extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton2)
                     .addComponent(jButton3))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -154,6 +172,10 @@ public class Dinamikus_esemenyek extends javax.swing.JFrame {
     }//GEN-LAST:event_kozozskattintas_esemeny
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        kilepes();
+    }//GEN-LAST:event_formWindowClosing
+
+    private void kilepes(){
         JOptionPane.showMessageDialog(rootPane, "Biztosan kilépsz?");
         String uzenet="Biztosan?";
         String cim="Kilépsz?";
@@ -161,10 +183,14 @@ public class Dinamikus_esemenyek extends javax.swing.JFrame {
         int tipus = JOptionPane.QUESTION_MESSAGE;
         int valasz = JOptionPane.showConfirmDialog(rootPane, uzenet, cim,gombok, tipus);
         if (valasz ==JOptionPane.YES_OPTION) {
-            final int HIBA_KOD = 0;     
-           System.exit(HIBA_KOD);
+            final int HIBA_KOD = 0;
+            System.exit(HIBA_KOD);
+        }
     }
-    }//GEN-LAST:event_formWindowClosing
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        kilepes();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     
     /**
@@ -208,6 +234,9 @@ public class Dinamikus_esemenyek extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jpnDinGombok;
     // End of variables declaration//GEN-END:variables
 }
